@@ -1,2 +1,2 @@
 # inudemo
-JavaSciriptの練習です
+JavaScriptの練習です
