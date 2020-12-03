@@ -1,0 +1,34 @@
+<script>
+//九九をセットする関数
+function kukuSet() {
+  document.form.formLeft.value = Math.floor(Math.random() * 9) + 1;
+  document.form.formRight.value = Math.floor(Math.random() * 9) + 1;
+  document.form.formAnswer = '';
+}
+//九九の正誤判定をする関数
+function answerCheck() {
+  let dan = eval(document.form.formLeft.value);
+  let kakeru = eval(document.form.formRight.value);
+  let userAnswer = eval(document.form.formAnswer.value);
+  let answer = dan * kakeru;
+  if (userAnswer == answer) {
+    alert('正解です');
+  } else {
+    alert('はずれです　' + 'こたえは' + answer + 'です');
+  }
+  //次の九九をセット
+  kukuSet();
+}
+</script>
+
+<form name='form'>
+  九九
+  <input type='text' size='2' name='formLeft'> ×
+  <input type='text' size='2' name='formRight'> =
+  <input type='text' size='2' name='formAnswer'>
+  <input type='button' value='判定' onclick='answerCheck()'>
+</form>
+
+<script>
+  kukuSet();
+</script>

@@ -1,0 +1,17 @@
+<script>
+  function passedTime() {
+    let dateObj = new Date();
+    let userBirth = new Date(document.form.formYear.value,document.form.formMonth.value-1,document.form.formDay.value);
+    let passedSec = dateObj.getTime() - userBirth.getTime();
+    let passedDay = Math.floor(passedSec / (1000*60*60*24));
+    document.form.formMessage.value = 'あなたが生まれてから' + passedDay + '日経過しました';
+  }
+</script>
+
+<form name='form'>生年月日を入力 -->
+  <input type='text' size='4' name='formYear'>年
+  <input type='text' size='2' name='formMonth'>月
+  <input type='text' size='2' name='formDay'>日
+  <input type='button' value='確定' onclick='passedTime()'><br>
+  <input type='text' size='50' name='formMessage'>
+</form>

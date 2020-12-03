@@ -1,0 +1,24 @@
+<body onload='textScroll()'>
+<script>
+  let coordinateY;
+  function textScroll() {
+    //左フレームのy座標を取得
+    coordinateY = (window.pageYOffset !== undefined) ? window.pageYOffset : document.body.scrollTop;
+    //左右のフレームのy座標を同じにする
+    window.parent.rightHtm.scroll(0,coordinateY);
+    //50ミリ秒ごとに座標を調べる
+    setTimeout('textScroll()',50); 
+  }
+  //ポケモンの図鑑番号を書き出す関数
+  function pokemonNo() {
+    let count = 1;
+    document.write('<p align="right">');
+    for (let i = 0; i < 151; i++) {
+      document.write('No.',count,'<br>');
+      count++;
+    }
+    document.write('</p>')
+  }
+  pokemonNo();
+</script>
+</body>

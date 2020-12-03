@@ -1,0 +1,14 @@
+<script>
+  function jump() {
+    let userSelect = document.form.menu.selectedIndex;
+    location.href = document.form.menu.options[userSelect].value;
+  }
+</script>
+
+<form name='form'>
+  <select name='menu' onchange='jump()'>
+  <option value='https://ja.wikipedia.org/wiki/%E5%B0%86%E6%A3%8B'>将棋wiki</option>
+  <option value='https://ja.wikipedia.org/wiki/%E5%9B%B2%E7%A2%81'>囲碁wiki</option>
+  <option value='https://ja.wikipedia.org/wiki/%E3%82%AA%E3%82%BB%E3%83%AD_(%E3%83%9C%E3%83%BC%E3%83%89%E3%82%B2%E3%83%BC%E3%83%A0)'>オセロwiki</option>
+  </select>
+</form>

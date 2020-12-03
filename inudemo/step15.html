@@ -1,0 +1,15 @@
+<script>
+  function passCheck() {
+    let userInput = prompt('パスワードを入力してください');
+    if (userInput === '3文字' || userInput === '３文字') {
+      location.href = 'http://www.google.co.jp'
+    } else {
+      alert('パスワードが不正です');
+    }
+  }
+</script>
+
+<form>
+  パスワードは3文字です
+  <input type='button' value='パスワードを入力する' onclick='passCheck()'>
+</form>

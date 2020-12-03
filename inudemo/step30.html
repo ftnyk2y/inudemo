@@ -1,0 +1,96 @@
+<script>
+  //現在の合計値
+  let total = 0;
+  //現在入力している値
+  let input = '';
+  //合計と入力値の演算子
+  let calc = '+';
+  //1回前に入力したもの 0:数値 1:演算子
+  let flag = 1;
+
+  //数字または小数点を押したときの処理
+  function intOrFloat(data) {
+    //1回前は数値
+    flag = 0;
+    //現在入力している値に追加
+    input += data;
+    //現在入力している値を表示
+    document.form.line.value = input;
+  }
+
+  //演算ボタンを押したときの処理
+  function calculate(data) {
+    //1回前に入力したものは数値
+    if (flag === 0) {
+      //1回前に入力したものは演算子
+      flag = 1;
+      //式を作る
+      let formula = total + calc + input;
+      //式を評価する
+      total = eval(formula);
+      //現在の入力をクリア
+      input = '';
+      //合計を表示
+      document.form.line.value = total;
+    }
+    //演算ボタンは'='かどうか
+    if (data === '=') {
+      //合計をクリア
+      total = 0;
+      //演算子を'+'にする
+      calc = '+'
+    } else {
+      //演算子を保存しておく
+      calc = data;
+    }
+  }
+
+  //クリアボタン'C'を押したときの処理
+  function buttonC() {
+    //合計をクリア
+    total = 0;
+    //演算子をクリア
+    calc = '+';
+    //現在入力している値をクリア
+    input = '';
+    //totalつまり0を表示
+    document.form.line.value = total;
+  }
+</script>
+
+<form name='form'>
+<table border='1'>
+  <tr>
+    <td align='center' colspan='4'>
+    </td>
+  </tr>
+  <tr>
+  <td colspan='3'><input type='text' size='12' name='line' value='0'></td>
+  <td align='center'><input type='button' value='C' onclick='buttonC()'></td>
+  </tr>
+  <tr>
+    <td align='center'><input type='button' value='7' onclick='intOrFloat(7)'></td>
+    <td align='center'><input type='button' value='8' onclick='intOrFloat(8)'></td>
+    <td align='center'><input type='button' value='9' onclick='intOrFloat(9)'></td>
+    <td align='center'><input type='button' value='/' onclick='calculate("/")'></td>
+  </tr>
+  <tr>
+    <td align="center"><input type="button" value="4" onclick="intOrFloat(4)"></td>
+    <td align="center"><input type="button" value="5" onclick="intOrFloat(5)"></td>
+    <td align="center"><input type="button" value="6" onclick="intOrFloat(6)"></td>
+    <td align="center"><input type="button" value="x" onclick="calculate('*')"></td>
+    </tr>
+    <tr>
+    <td align="center"><input type="button" value="1" onclick="intOrFloat(1)"></td>
+    <td align="center"><input type="button" value="2" onclick="intOrFloat(2)"></td>
+    <td align="center"><input type="button" value="3" onclick="intOrFloat(3)"></td>
+    <td align="center"><input type="button" value="-" onclick="calculate('-')"></td>
+    </tr>
+    <tr>
+    <td align="center"><input type="button" value="0" onclick="intOrFloat(0)"></td>
+    <td align="center"><input type="button" value="." onclick="intOrFloat('.')"></td>
+    <td align="center"><input type="button" value="+" onclick="calculate('+')"></td>
+    <td align="center"><input type="button" value="=" onclick="calculate('=')"></td>
+    </tr>
+</table>
+</form>

@@ -1,0 +1,17 @@
+<script>
+  let omikujiImage = new Array(
+    'daikichi.png',
+    'chukichi.png',
+    'kichi.png'
+  );
+
+  function pullKuji() {
+    let rand = Math.floor(Math.random()*omikujiImage.length);
+    document.kuji.src = omikujiImage[rand];
+  }
+</script>
+
+<img src='omikuji.png' border='0' name='kuji'>
+<form>
+  <input type='button' value='引く' onclick='pullKuji()'>
+</form>

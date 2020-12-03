@@ -1,0 +1,16 @@
+<script>
+  let weekList = new Array('日','月','火','水','木','金','土');
+  let dateObj = new Date;
+
+  let year = dateObj.getFullYear();
+  let month = dateObj.getMonth() + 1;
+  let date = dateObj.getDate();
+  let day = dateObj.getDay();
+  let hour = dateObj.getHours();
+  let minutes = dateObj.getMinutes();
+  let seconds = dateObj.getSeconds();
+
+  let message = '現在は' + year + '年' + month + '月' + date + '日' + 
+                  weekList[day] + '曜日' + hour + '時' + minutes + '分' + seconds + '秒です';
+  document.write(message);
+</script>

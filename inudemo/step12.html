@@ -1,0 +1,12 @@
+<script>
+  if (document.referrer.length != 0) {
+    let ref = document.referrer;
+    if (ref.indexOf('http://www.google.co.jp') !== 0) {
+      document.write('リンク元はGoogleです。');
+    } else {
+      document.write('リンク元は' + ref + 'です。');
+    }
+  } else {
+    document.write('このページへは直接いらっしゃっています。');
+  }
+</script>

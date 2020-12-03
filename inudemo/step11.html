@@ -1,0 +1,36 @@
+<script>
+  let message = 'ただ今の時刻' + hiduke() + 'です　　';
+  message = message + message;
+  let count = 0;
+  //現在時刻の取得
+  function hiduke() {
+    let weeks = new Array('日','月','火','水','木','金','土');
+    let dateObj = new Date();
+
+    let year = dateObj.getFullYear();
+    let month = dateObj.getMonth() + 1;
+    let date = dateObj.getDate();
+    let day = dateObj.getDay();
+    let hours = dateObj.getHours();
+    let minutes = dateObj.getMinutes();
+    let seconds = dateObj.getSeconds();
+    let hidukeMessage = year + '年' + month + '月' + date + '日' +
+                 weeks[day] + '曜日' + hours + '時' + minutes + '分' + seconds + '秒';
+    return hidukeMessage;
+  }
+  //流れるメッセージの表示
+  function hyouji() {
+    document.form.formMessage.value = message.substring(count,message.length);
+    count = (count === (message.length / 2) - 1) ? 0 : count+1;
+  }  
+</script>
+
+<form name='form'>
+  <input type='text' size='30' name='formMessage'>
+  <input type='button' value='更新' onclick='location.reload(true)'>
+</form>
+
+<script>
+  setInterval('hiduke()',200);
+  setInterval('hyouji()',200);
+</script>

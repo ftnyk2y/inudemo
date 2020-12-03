@@ -1,0 +1,19 @@
+<script>
+  let message = 'こんにちは。ごきげんいかが？';
+  let count = 0;
+
+  function hyouji() {
+    document.form.formMessage.value = message.substring(0,count) + '...';
+    //countがmessageに格納した文字列の長さと同じならカウントリセット、それ以外ならcountに1を足す
+    count = (count === message.length) ? 0 : count+1;
+  }
+</script>
+
+<form name='form'>
+  <input type='text' size='30' name='formMessage'>
+</form>
+
+<script>
+  //0.2秒ごとに文字を表示していく
+  setInterval('hyouji()',200);
+</script>

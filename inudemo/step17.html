@@ -1,0 +1,19 @@
+<script>
+  function ageCheck() {
+    let userAge = confirm('20歳以上ですか？');
+    if (userAge === true) {
+      alert('もうお酒が飲めますね...');
+    } else {
+      alert('お若いですね...');
+    }
+  }
+  function message() {
+    alert('失礼いたしました');
+  }
+</script>
+
+<form>
+  よろしければご年齢を
+  <input type='button' value='教える' onclick='ageCheck()'>
+  <input type='button' value='教えない' onclick='message()'>
+</form>

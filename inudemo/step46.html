@@ -1,0 +1,17 @@
+<script>
+  let backColorTable = new Array("#FF0000","#FFFFFF");
+  let flontColorTable = new Array("#FFFFFF","#FF0000");
+  let colorCount = 0;
+
+  function colorChange() {
+    document.getElementById('thankYou').style.backgroundColor = backColorTable[colorCount];
+    document.getElementById('thankYou').style.color = flontColorTable[colorCount];
+    colorCount = (colorCount === 1) ? 0 : 1;
+  }
+</script>
+
+<div id='thankYou' style='width:140px;color:#000000';background-color:#FFFFFF">背景色が変わる</div>
+
+<script>
+  setInterval('colorChange()',300);
+</script>

@@ -1,0 +1,25 @@
+<script>
+  let colorTable = new Array(
+    "#FF0000",
+    "#0000FF",
+    "#00FF00",
+    "#FF00FF",
+    "#00FFFF",
+    "#FFFF00",
+    "#000000",
+    "#FFFFFF"
+  );
+  let colorCount = 0;
+
+  function henge() {
+    document.getElementById('shichiHenge').style.color = colorTable[colorCount];
+    //色がループするようにする
+    colorCount = (colorCount < colorTable.length-1) ? colorCount + 1 : 0;
+  } 
+</script>
+
+<div id='shichiHenge' style='color:#000000'>色が七変化</div>
+
+<script>
+  setInterval('henge()',300);
+</script>

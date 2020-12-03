@@ -1,0 +1,23 @@
+<script>
+  let count = 1;
+
+  function keikaJikan() {
+    document.form1.formSec.value = count + '秒';
+    document.form1.formHun.value = Math.floor(count / 60) + '分';
+    document.form1.formJikan.value = Math.floor(count / 3600) + '時間';
+    count++;
+  }
+
+</script>
+<form name = 'form1'>
+  あなたがここに来てから
+  <input type='text' size='10' name='formSec'>が経過しています。<br>
+  分にすると
+  <input type='text' size='10' name='formHun'>です。<br>
+  時間にすると
+  <input type='text' size='10' name='formJikan'>です。
+</form>
+
+<script>
+  setInterval('keikaJikan()',1000);
+</script>

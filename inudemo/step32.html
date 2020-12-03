@@ -1,0 +1,16 @@
+<body onload='bgmOn()' onunload='bgmOff()'>
+  <script>
+    //ポップアップがブロックされているとbgmウィンドウは出ない
+    //bgmウィンドウの状態
+    let windowStatus = false;
+    function bgmOn() {
+      windowStatus = window.open('bgmWindow.html','bgm','width=300,height=200');
+    }
+    //ページを移動するときにbgmウィンドウが開いているときは閉じる？
+    function bgmOff() {
+      if (windowStatus.closed === false) {
+        windowStatus.close();
+      }
+    }
+  </script>
+</body> 

@@ -1,0 +1,17 @@
+<script>
+  function birthDayYoubi () {
+    let weeks = new Array('日','月','火','水','木','金','土');
+    let userDate = new Date(document.form.formYear.value,document.form.formMonth.value-1,document.form.formDay.value);
+    let userDay = userDate.getDay();
+    document.form.formMessage.value = 'あなたは' + weeks[userDay] + '曜日生まれです';
+  }
+</script>
+
+<form name='form'>あなたの生年月日(西暦)
+<input type='text' size='4' name='formYear'>年
+<input type='text' size='2' name='formMonth'>月
+<input type='text' size='2' name='formDay'>日
+<input type='button' value='確定' onclick='birthDayYoubi()'>
+<input type='text' size='30' name='formMessage'>
+
+</form>

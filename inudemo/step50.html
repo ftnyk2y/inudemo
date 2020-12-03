@@ -1,0 +1,10 @@
+<img border='0' name='kuji' src='omikuji.png'>
+<script>
+  let kujiImage = new Array(
+    'kichi.png',
+    'chukichi.png',
+    'daikichi.png'
+  );
+  let rand = Math.floor(Math.random()*kujiImage.length);
+  document.kuji.src = kujiImage[rand];
+</script>

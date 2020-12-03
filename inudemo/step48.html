@@ -1,0 +1,15 @@
+<script>
+  function count (year,month,day) {
+    let dateObj = new Date();
+    let startDate = new Date(year,month - 1,day);
+    let passedSec = dateObj.getTime() - startDate.getTime();
+    let passedDay = Math.floor(passedSec / (1000*60*60*24));
+    document.write(passedDay);
+  }
+</script>
+
+大政奉還から
+<script>
+  count(1867,11,9);
+</script>
+日目です

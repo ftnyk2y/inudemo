@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>背景色を変化させる</title>
+  </head>
+  <body>
+    <script>
+      //背景色に使う色のリスト
+      let colorList = new Array(
+        "000000","101010","202020","303030",
+        "404040","505050","606060","707070",
+        "808080","909090","A0A0A0","B0B0B0",
+        "C0C0C0","D0D0D0","E0E0E0","FFFFFF"
+      );
+
+      let count = 0;
+
+      //背景色変更のための関数
+      function fade() {
+        if (count !== 16) {
+          document.bgColor = '#' + colorList[count];
+          let time = (count === 0 || count ===15) ? 1000 : 50;
+          count++
+          setTimeout('fade()',time);
+        } else {
+          location.href = 'https://google.co.jp';
+        }
+      }
+    </script>
+    //文字の色は背景と同色のとき、見えない
+    <br><br><br><br><br><br><br>
+    <p align='center'>
+      <font color='#FFFFFF' size='10'>
+        <strong>圧倒的な情報へのアクセス</strong>
+      </font><br><br>
+      <font color='#000000' size='50'>
+        <strong>Google</strong>
+      </font>
+    </p>
+
+    <script>
+      fade();
+    </script>
+  </body>
+</html>

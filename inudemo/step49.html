@@ -1,0 +1,20 @@
+<script>
+  function dayCount(year,month,day) {
+    let dateObj = new Date;
+    let startDate = new Date(year,month-1,day);
+    let passedSec = dateObj.getTime() - startDate.getTime();
+    let passedDay = Math.floor(passedSec / (1000*60*60*24));
+    return passedDay;
+  }
+</script>
+
+<script>
+  let targetDay = dayCount(2801,1,1);
+  if (targetDay < 0) {
+    document.write('銀河連邦の誕生まで',targetDay*(-1),'日です');
+  } else if (targetDay == 0) {
+    document.write('銀河連邦の誕生です');
+  } else {
+    document.write('銀河連邦の誕生から',targetDay,'日が経過しました');
+  }
+</script>

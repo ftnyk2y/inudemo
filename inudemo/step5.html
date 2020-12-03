@@ -1,0 +1,30 @@
+<script>
+  function getDate() {
+    let weekList = ['日','月','火','水','木','金','土'];
+    let dateObj = new Date();
+
+    let year = dateObj.getFullYear();
+    let month = dateObj.getMonth() + 1;
+    let date = dateObj.getDate();
+    let day = dateObj.getDay();
+    let hours = dateObj.getHours();
+    let minutes = dateObj.getMinutes();
+    let seconds = dateObj.getSeconds();
+
+    let message = year + '年' + month + '月' + date + '日' + 
+                  weekList[day] + '曜日' + hours + '時' + minutes + '分' + seconds + '秒';
+    
+    document.form1.formDate.value = message;
+  }
+</script>
+
+<form name = 'form1'>
+  現在時刻は
+  <input type='text' size='30' name='formDate'>
+  です
+</form>
+
+<script>
+  //1秒ごとにgetDate()を呼び出す
+  setInterval('getDate()',1000);
+</script>

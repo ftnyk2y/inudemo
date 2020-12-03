@@ -1,0 +1,46 @@
+<style type='text/css'>
+.outerFrame {
+  width: 11em;
+  border-style: solid;
+  border-width: thin;
+}
+.color1 {
+  background-color: aquamarine
+}
+.color2 {
+  background-color: aqua;
+}
+</style>
+
+<script>
+function table() {
+  let table; //テーブル
+  let tableColor; //テーブルの背景色
+  let tableStr; //タグの文字列
+  let count = 0; //テーブルの背景色指定のためのカウンタ
+  table = new Array(
+    'あいうえお',
+    'かきくけこ',
+    'さしすせそ',
+    'たちつてと',
+    'なにぬねの'
+  );
+  //テーブルの背景色をリストしておく
+  tableColor = new Array('color1','color2');
+
+  tableStr = '<div class="outerFrame">';
+  for (let i = 0; i < table.length; i++) {
+    tableStr += '<div class="' + tableColor[count] + '">';
+    tableStr += table[i];
+    tableStr += '</div>';
+    count === tableColor.length-1 ? count = 0 : count++;
+  }
+  return tableStr;
+
+
+}
+</script>
+
+<script>
+  document.write(table());
+</script>

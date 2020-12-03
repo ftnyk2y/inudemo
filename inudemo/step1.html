@@ -1,0 +1,27 @@
+<!--参考: http://cya.sakura.ne.jp/java/ -->
+<body onload='textScroll()'>
+<script>
+  //step34.htmlと連携する
+  //y座標
+  let coordinateY = 0;
+  function textScroll() {
+    window.scroll(0,coordinateY);
+    coordinateY += 2;
+    if (coordinateY === 300) {
+      //y座標のリセット
+      coordinateY = 0;
+    }
+      //再帰的に関数を呼び出す？
+      setTimeout('textScroll()',100);
+  }
+</script>
+
+<p align="center">
+  Hello world!<br><br>
+  Hello world! Hello world!<br><br>
+  Hello world! Hello world! Hello world!<br><br>
+  Hello world! Hello world! Hello world! Hello world!<br><br>
+  Hello world! Hello world! Hello world! Hello world! Hello world!<br><br>
+  Hello world! Hello world! Hello world! Hello world! Hello world! Hello world!<br><br>
+  <br><br><br><br>
+  </p>

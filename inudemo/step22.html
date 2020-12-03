@@ -1,0 +1,83 @@
+<script>
+  //****カレンダーの準備****
+
+  //日付オブジェクトを取得
+  let dateObj = new Date();
+  //曜日テーブルを用意
+  let weekTable = new Array('日','月','火','水','木','金','土');
+  //各月の月末のテーブルを用意
+  let endOfMonth = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+  //年を取得
+  let year = dateObj.getFullYear();
+  //うるう年かどうか判定
+  //うるう年だったら2月は29日が月末
+  if ((year % 4) === 0 && (year % 100 !== 0) || (year % 400) === 0) {
+    //月末を29に書き換える
+    endOfMonth[1] = 29;
+  }
+  //月を取得
+  let month = dateObj.getMonth();
+  //今日の日にちを取得
+  //'今日'にしるしをつけたいから変数に避難しておく
+  let today = dateObj.getDate();
+  //日にちを1日としてセット
+  dateObj.setDate(1);
+  //1日の曜日を取得
+  let dayOf1 = dateObj.getDay();
+  //カレンダーに必要な行数を調べる
+  //当該月の1日が何曜日かを考慮する
+  let tableLine = Math.ceil((dayOf1 + endOfMonth[month]) / 7);
+  //カレンダーのセルを用意
+  let table = new Array(tableLine * 7);
+
+  //カレンダーのセルを空白としてセット
+  for (let i = 0; i < tableLine*7; i++) {
+    table[i] = ' ';
+  }
+  //当該月の日付を埋める
+  for (let i = 0; i < endOfMonth[month]; i++) {
+    table[i+dayOf1] = i+1;
+  }
+
+  //****カレンダーの表示****
+
+  //表のタグを書き出してゆく
+  document.write('<table border="1">');
+  //見出し行の書き出し
+  document.write('<tr><td colspan="7">');
+  document.write(year,'年',month+1,'月');
+  document.write('</td></tr>');
+
+  //曜日(日~土)を書き出す
+  document.write('<tr>');
+  for (let i = 0; i < 7; i++) {
+    //曜日のデータセルを繰り返し書き出す
+    document.write('<td align="center">');
+    document.write(weekTable[i]);
+    document.write('</td>');
+  }
+  document.write('</tr>');
+
+  //行を書き出す
+  //行のループ
+  for (let i = 0; i < tableLine; i++) {
+    document.write('<tr>');
+    //列のループ
+    for (let j = 0; j < 7; j++) {
+      document.write('<td align="center"');
+      //現在書き込むセルの内容
+      let thisCell = table[j+(i*7)];
+      //現在書き込んでいるセルが'今日'だった場合、色をつける
+      if (thisCell === today) {
+        document.write('bgcolor="gray">');
+      } else {
+        document.write('bgcolor="white">');
+      }
+      //現在書き込んでいるセルに日付をセットする
+      document.write(thisCell);
+    }
+    document.write('</tr>');
+  }
+  document.write('</table>');
+</script>
+

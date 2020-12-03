@@ -1,0 +1,35 @@
+<script>
+  //フォントサイズ
+  let fontSizeCount = 1;
+  //フォントサイズ加算:1 フォントサイズ減算: 0
+  let fontFlag = 1;
+
+  function fontSize() {
+    //加算モードかどうか
+    if (fontFlag === 1) {
+      //最大フォントに達しているか
+      if (fontSizeCount === 30) {
+        //減算モードに変更
+        fontFlag = 0;
+        fontSizeCount--;
+      } else {
+        fontSizeCount++;
+      }
+    } else {
+      //減算モードのとき
+      if (fontSizeCount === 1) {
+        fontFlag = 1;
+        fontSizeCount++;
+      } else {
+        fontSizeCount--;
+      }
+    }
+    document.getElementById('string').style.fontSize = fontSizeCount + 'pt';
+  }
+</script>
+
+<div id='string' style='font-size: 1px'>高血圧</div>
+
+<script>
+  setInterval('fontSize()',10);
+</script>
